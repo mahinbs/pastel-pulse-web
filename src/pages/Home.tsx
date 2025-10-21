@@ -437,12 +437,13 @@ const Home = () => {
 
                 <CardHeader className="relative z-10 text-center pb-4">
                   <div
-                    className={`w-24 h-24 bg-white/40 rounded-xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 p-3`}
+                    className={`w-24 h-24 bg-white/40 rounded-xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 p-3 animate-float`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <img
                       src={service.iconUrl}
                       alt={service.title}
-                      className="w-full h-full object-contain aspect-square"
+                      className="w-full h-full object-contain aspect-square group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   <CardTitle className="text-xl font-bold text-black group-hover:text-gray-800 transition-colors">
@@ -469,9 +470,29 @@ const Home = () => {
             className="bg-primary text-white hover:bg-primary/90 hover-lift"
             onClick={() => window.open("https://wa.me/917358250143", "_blank")}
           >
-            “Let’s PIQUE Your Fame”
+            "Let's PIQUE Your Fame"
           </Button>
         </div>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+              transform: translateY(-8px) rotate(-2deg);
+            }
+            50% {
+              transform: translateY(-12px) rotate(0deg);
+            }
+            75% {
+              transform: translateY(-8px) rotate(2deg);
+            }
+          }
+          .animate-float {
+            animation: float 4s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* How We Work Section */}

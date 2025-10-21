@@ -176,11 +176,28 @@ const Services = () => {
               transform: translateY(0);
             }
           }
+          @keyframes float {
+            0%, 100% {
+              transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+              transform: translateY(-8px) rotate(-2deg);
+            }
+            50% {
+              transform: translateY(-12px) rotate(0deg);
+            }
+            75% {
+              transform: translateY(-8px) rotate(2deg);
+            }
+          }
           .animate-fade-in {
             animation: fade-in 0.6s ease-out;
           }
           .animate-fade-in-up {
             animation: fade-in-up 0.8s ease-out;
+          }
+          .animate-float {
+            animation: float 4s ease-in-out infinite;
           }
         `}</style>
       </section>
@@ -205,25 +222,29 @@ const Services = () => {
                 >
                   {/* Background decoration */}
                   <div className="absolute inset-0 h-full w-full bg-black/60"></div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
                   <div className="relative z-10">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 p-3 group-hover:scale-110 transition-transform duration-300">
+                    <div 
+                      className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 p-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 animate-float"
+                      style={{ animationDelay: `${index * 0.2}s` }}
+                    >
                       <img
                         src={service.iconUrl}
                         alt={service.title}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                       />
-                    </div>
-                    <CardTitle className="text-2xl font-bold mb-2">
-                      {service.title}
-                    </CardTitle>
+                  </div>
+                  <CardTitle className="text-2xl font-bold mb-2">
+                    {service.title}
+                  </CardTitle>
                     <p className="text-white/90 font-medium text-lg mb-3">
                       {service.subtitle}
                     </p>
                     <CardDescription className="text-white/80 text-base leading-relaxed">
-                      {service.description}
-                    </CardDescription>
+                    {service.description}
+                  </CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -253,7 +274,7 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground">
                       {service.whyItMatters}
                     </p>
-                  </div>
+                    </div>
 
                   <Button
                     onClick={() =>
@@ -261,9 +282,9 @@ const Services = () => {
                     }
                     className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover-lift"
                   >
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                      Get Started
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                 </CardContent>
               </Card>
             ))}
