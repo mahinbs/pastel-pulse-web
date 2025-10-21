@@ -1,19 +1,39 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, User, Users, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/services", label: "Services" },
     { to: "/portfolio", label: "Portfolio" },
     { to: "/about", label: "About" },
-    { to: "/pricing", label: "Pricing" },
+    // { to: "/pricing", label: "Pricing" },
     { to: "/contact", label: "Contact" },
   ];
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -33,6 +53,7 @@ const Navigation = () => {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  onClick={link.label === "Contact" ? handleContactClick : undefined}
                   className={({ isActive }) =>
                     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive
@@ -57,7 +78,7 @@ const Navigation = () => {
               <Users className="h-4 w-4" />
               Team Login
             </Button> */}
-            <Link to={`tel:`}>
+            <Link to={`tel:917358250143`}>
               <Button
                 variant="default"
                 size="sm"
@@ -100,7 +121,12 @@ const Navigation = () => {
                       : "text-foreground hover:text-primary hover:bg-primary/5"
                   }`
                 }
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  setIsOpen(false);
+                  if (link.label === "Contact") {
+                    handleContactClick(e);
+                  }
+                }}
               >
                 {link.label}
               </NavLink>

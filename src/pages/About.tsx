@@ -1,63 +1,83 @@
-import { ArrowRight, Users, Award, Target, Heart, Star, Coffee, Lightbulb } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  ArrowRight,
+  Users,
+  Award,
+  Target,
+  Heart,
+  Star,
+  Coffee,
+  Lightbulb,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const team = [
     {
-      name: 'Sarah Martinez',
-      role: 'Creative Director',
-      description: 'Award-winning designer with 8+ years of experience in brand identity and visual storytelling.',
-      expertise: ['Brand Strategy', 'Visual Identity', 'Creative Direction']
+      name: "Sharmila K",
+      role: "Creative Director",
+      description:
+        "A visionary creator who turns ideas into stunning visuals and brand-defining designs.",
     },
     {
-      name: 'Michael Chen',
-      role: 'Digital Marketing Lead',
-      description: 'Expert in digital marketing strategies with a proven track record of driving growth.',
-      expertise: ['Social Media', 'SEO/SEM', 'Analytics']
+      name: "Rekha S",
+      role: "Digital Marketing Lead",
+      description:
+        "A growth-driven strategist who knows how to make every click count.",
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Web Development Director',
-      description: 'Full-stack developer passionate about creating beautiful, functional web experiences.',
-      expertise: ['Frontend', 'Backend', 'UX/UI']
+      name: "Aishwarya A",
+      role: "Brand Strategist",
+      description:
+        "A sharp storyteller who helps brands find their true voice and place in the market.",
     },
     {
-      name: 'David Johnson',
-      role: 'Brand Strategist',
-      description: 'Strategic thinker who helps brands find their unique voice and market position.',
-      expertise: ['Brand Positioning', 'Market Research', 'Strategy']
-    }
+      name: "Sathya Raj B",
+      role: "Web Development Project Lead",
+      description:
+        "A tech-savvy creator who builds sleek, functional websites that blend design with seamless user experience.",
+    },
   ];
 
   const values = [
     {
       icon: <Heart className="h-8 w-8" />,
-      title: 'Passion-Driven',
-      description: 'We pour our heart into every project, treating your brand as our own and striving for excellence in everything we do.'
+      title: "Passion-Driven",
+      description:
+        "We pour our heart into every project, treating your brand as our own and striving for excellence in everything we do.",
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: 'Collaborative',
-      description: 'We believe the best results come from true partnership, working closely with our clients every step of the way.'
+      title: "Collaborative",
+      description:
+        "We believe the best results come from true partnership, working closely with our clients every step of the way.",
     },
     {
       icon: <Lightbulb className="h-8 w-8" />,
-      title: 'Innovation-Focused',
-      description: 'We stay ahead of trends and constantly explore new technologies and creative approaches to deliver cutting-edge solutions.'
+      title: "Innovation-Focused",
+      description:
+        "We stay ahead of trends and constantly explore new technologies and creative approaches to deliver cutting-edge solutions.",
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: 'Results-Oriented',
-      description: 'Every decision we make is guided by data and focused on achieving measurable results for our clients.'
-    }
+      title: "Results-Oriented",
+      description:
+        "Every decision we make is guided by data and focused on achieving measurable results for our clients.",
+    },
   ];
 
   const stats = [
-    { number: '2019', label: 'Founded' },
-    { number: '250+', label: 'Happy Clients' },
-    { number: '500+', label: 'Projects Completed' },
-    { number: '50+', label: 'Awards Won' }
+    { number: "2019", label: "Founded" },
+    { number: "250+", label: "Happy Clients" },
+    { number: "500+", label: "Projects Completed" },
+    { number: "50+", label: "Awards Won" },
   ];
 
   return (
@@ -69,8 +89,9 @@ const About = () => {
             About <span className="text-white/90">Piquefame</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            We're a passionate team of creatives, strategists, and technologists 
-            dedicated to helping brands tell their stories and achieve their goals.
+            PIQUEFAME is a Chennai-based startup that blends creativity,
+            strategy, and storytelling to help brands get seen, heard, and
+            remembered. We don’t just market — we make digital fame happen
           </p>
         </div>
       </section>
@@ -78,70 +99,66 @@ const About = () => {
       {/* Our Story */}
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Our <span className="text-gradient">Story</span>
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 2019, Piquefame began as a small studio with a big vision: 
-                  to help businesses create authentic connections with their audiences through 
-                  exceptional design and strategic thinking.
-                </p>
-                <p>
-                  What started as a two-person team has grown into a diverse group of creatives, 
-                  each bringing unique perspectives and expertise to every project. We've had 
-                  the privilege of working with startups, established businesses, and everything in between.
-                </p>
-                <p>
-                  Today, we continue to be driven by the same passion that started it all: 
-                  creating work that not only looks beautiful but delivers real, measurable results 
-                  for our clients.
+                  PIQUEFAME was born with a simple belief —{" "}
+                  <b>brands deserve more than ordinary marketing.</b> <br />
+                  What started as a spark of creativity has grown into a space
+                  where ideas turn into campaigns that connect, convert, and
+                  create impact. <br /> We’re a young team with bold energy,
+                  mixing strategy and storytelling to help brands stand out,
+                  build trust, and win attention in a noisy digital world.
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            {/* <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
-                <Card key={index} className="text-center border-0 shadow-soft hover-lift">
+                <Card
+                  key={index}
+                  className="text-center border-0 shadow-soft hover-lift"
+                >
                   <CardContent className="pt-6">
                     <div className="text-3xl font-bold text-primary mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-muted-foreground">
-                      {stat.label}
-                    </div>
+                    <div className="text-muted-foreground">{stat.label}</div>
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-muted/20">
+      {/* <section className="py-20 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-gradient">Values</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              These core values guide everything we do and shape how we work 
+              These core values guide everything we do and shape how we work
               with our clients and each other.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center border-0 shadow-soft hover-lift">
+              <Card
+                key={index}
+                className="text-center border-0 shadow-soft hover-lift"
+              >
                 <CardHeader>
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-white mx-auto mb-4">
                     {value.icon}
                   </div>
-                  <CardTitle className="text-xl">
-                    {value.title}
-                  </CardTitle>
+                  <CardTitle className="text-xl">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="leading-relaxed">
@@ -152,7 +169,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
       <section className="py-20 bg-background">
@@ -162,21 +179,25 @@ const About = () => {
               Meet Our <span className="text-gradient">Team</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A diverse group of passionate professionals who bring creativity, 
-              expertise, and dedication to every project.
+              A crew of curious creators and sharp strategists, bringing bold
+              ideas, smart moves, and all-in energy to every brand we touch.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="hover-lift border-0 shadow-soft overflow-hidden">
+              <Card
+                key={index}
+                className="hover-lift border-0 shadow-soft overflow-hidden"
+              >
                 <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 text-center">
                   <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </div>
-                  <CardTitle className="text-xl">
-                    {member.name}
-                  </CardTitle>
+                  <CardTitle className="text-xl">{member.name}</CardTitle>
                   <CardDescription className="font-medium text-primary">
                     {member.role}
                   </CardDescription>
@@ -185,16 +206,6 @@ const About = () => {
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {member.description}
                   </p>
-                  <div className="space-y-2">
-                    <div className="text-sm font-medium text-foreground">Expertise:</div>
-                    <div className="flex flex-wrap gap-2">
-                      {member.expertise.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -208,13 +219,12 @@ const About = () => {
           <div className="mb-8">
             <Award className="h-16 w-16 mx-auto mb-6 text-white/80" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Our Mission
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
           <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-            "To empower businesses of all sizes to tell their unique stories, connect 
-            authentically with their audiences, and achieve sustainable growth through 
-            exceptional design, strategic thinking, and innovative digital solutions."
+            "At PIQUEFAME, our mission is to help brands cut through the noise
+            with creativity, clarity, and strategy. We exist to turn everyday
+            businesses into unforgettable digital experiences — building not
+            just campaigns, but communities, conversations, and growth."
           </p>
           <div className="flex items-center justify-center gap-2 text-white/60">
             <Coffee className="h-5 w-5" />
@@ -230,17 +240,21 @@ const About = () => {
             Ready to Work <span className="text-gradient">Together?</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We'd love to learn more about your brand and explore how we can help 
+            We'd love to learn more about your brand and explore how we can help
             you achieve your goals. Let's start a conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-primary hover-lift">
-              Get in Touch
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="hover-lift">
-              View Our Work
-            </Button>
+            <Link to="https://wa.me/917358250143">
+              <Button size="lg" className="bg-gradient-primary hover-lift">
+                Get A Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/portfolio">
+              <Button size="lg" variant="outline" className="hover-lift">
+                View Our Work
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
