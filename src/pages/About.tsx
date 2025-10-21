@@ -66,7 +66,7 @@ const About = () => {
       <section className="py-20 bg-gradient-hero text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            About <span className="text-white/90">Pixel Perfect</span>
+            About <span className="text-white/90">Piquefame</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
             We're a passionate team of creatives, strategists, and technologists 
@@ -85,7 +85,7 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 2019, Pixel Perfect began as a small studio with a big vision: 
+                  Founded in 2019, Piquefame began as a small studio with a big vision: 
                   to help businesses create authentic connections with their audiences through 
                   exceptional design and strategic thinking.
                 </p>
