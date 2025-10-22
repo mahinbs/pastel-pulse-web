@@ -19,18 +19,18 @@ const Navigation = () => {
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== "/") {
+      navigate("/");
       setTimeout(() => {
-        const contactSection = document.getElementById('contact');
+        const contactSection = document.getElementById("contact");
         if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 100);
     } else {
-      const contactSection = document.getElementById('contact');
+      const contactSection = document.getElementById("contact");
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   };
@@ -41,9 +41,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-2">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <NavLink to="/" className="">
+            <Link to="/" className="">
               <img src="/logo.png" alt="logo" className="w-20 h-auto" />
-            </NavLink>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -53,7 +53,9 @@ const Navigation = () => {
                 <NavLink
                   key={link.to}
                   to={link.to}
-                  onClick={link.label === "Contact" ? handleContactClick : undefined}
+                  onClick={
+                    link.label === "Contact" ? handleContactClick : undefined
+                  }
                   className={({ isActive }) =>
                     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive
@@ -131,8 +133,8 @@ const Navigation = () => {
                 {link.label}
               </NavLink>
             ))}
-            <div className="flex flex-col space-y-2 pt-4">
-              <Button
+            <div className="flex flex-col space-y-2 pt-4 w-full">
+              {/* <Button
                 variant="outline"
                 size="sm"
                 className="flex items-center justify-center gap-2"
@@ -147,7 +149,17 @@ const Navigation = () => {
               >
                 <Users className="h-4 w-4" />
                 Team Login
-              </Button>
+              </Button> */}
+              <Link to={`tel:917358250143`} className="">
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="flex items-center gap-2 bg-gradient-primary"
+                >
+                  <PhoneCall className="h-4 w-4" />
+                  Let's Talk
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -216,7 +216,7 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-[65%,1fr] gap-12 items-center">
+          <div className="flex flex-col-reverse lg:grid grid-cols-[65%,1fr] gap-12 items-center pt-8 md:pt-0">
             {/* Left Side - Text Content */}
             <div className="text-center lg:text-left text-black">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">

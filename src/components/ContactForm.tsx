@@ -80,7 +80,7 @@ ${data.message}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <Card className="p-16 shadow-2xl border-0 bg-white relative overflow-hidden rounded-3xl">
+          <Card className="p-6 md:p-16 shadow-2xl border-0 bg-white relative overflow-hidden rounded-3xl">
             {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-full opacity-50"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full opacity-50"></div>
@@ -265,7 +265,7 @@ ${data.message}
 
               {/* Right Side - Contact Information */}
               <div className="lg:pl-8">
-                <div className="bg-gradient-to-br from-orange-50 to-pink-50 p-8 rounded-2xl border-2 border-orange-100">
+                <div className="bg-gradient-to-br from-orange-50 to-pink-50 p-4 sm:p-8 rounded-2xl border-2 border-orange-100">
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">
                     Prefer to reach out directly?
                   </h3>
