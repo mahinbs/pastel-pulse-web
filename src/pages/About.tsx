@@ -17,6 +17,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import AnimatedSection from "@/components/AnimatedSection";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 const About = () => {
   const team = [
@@ -84,38 +87,62 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            About <span className="text-white/90">Piquefame</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            PIQUEFAME is a Chennai-based startup that blends creativity,
-            strategy, and storytelling to help brands get seen, heard, and
-            remembered. We don’t just market — we make digital fame happen
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              About <span className="text-white/90">Piquefame</span>
+            </motion.h1>
+            <motion.p 
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              PIQUEFAME is a Chennai-based startup that blends creativity,
+              strategy, and storytelling to help brands get seen, heard, and
+              remembered. We don't just market — we make digital fame happen
+            </motion.p>
+          </div>
+        </AnimatedSection>
       </section>
 
       {/* Our Story */}
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Our <span className="text-gradient">Story</span>
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  PIQUEFAME was born with a simple belief —{" "}
-                  <b>brands deserve more than ordinary marketing.</b> <br />
-                  What started as a spark of creativity has grown into a space
-                  where ideas turn into campaigns that connect, convert, and
-                  create impact. <br /> We’re a young team with bold energy,
-                  mixing strategy and storytelling to help brands stand out,
-                  build trust, and win attention in a noisy digital world.
-                </p>
+            <AnimatedSection direction="up" delay={0.2}>
+              <div>
+                <motion.h2 
+                  className="text-3xl md:text-4xl font-bold mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Our <span className="text-gradient">Story</span>
+                </motion.h2>
+                <motion.div 
+                  className="space-y-6 text-lg text-muted-foreground leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <p>
+                    PIQUEFAME was born with a simple belief —{" "}
+                    <b>brands deserve more than ordinary marketing.</b> <br />
+                    What started as a spark of creativity has grown into a space
+                    where ideas turn into campaigns that connect, convert, and
+                    create impact. <br /> We're a young team with bold energy,
+                    mixing strategy and storytelling to help brands stand out,
+                    build trust, and win attention in a noisy digital world.
+                  </p>
+                </motion.div>
               </div>
-            </div>
+            </AnimatedSection>
             {/* <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <Card
@@ -174,40 +201,71 @@ const About = () => {
       {/* Team Section */}
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Meet Our <span className="text-gradient">Team</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A crew of curious creators and sharp strategists, bringing bold
-              ideas, smart moves, and all-in energy to every brand we touch.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Meet Our <span className="text-gradient">Team</span>
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-muted-foreground max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                A crew of curious creators and sharp strategists, bringing bold
+                ideas, smart moves, and all-in energy to every brand we touch.
+              </motion.p>
+            </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <Card
-                key={index}
-                className="hover-lift border-0 shadow-soft overflow-hidden"
-              >
-                <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 text-center">
-                  <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="font-medium text-primary">
-                    {member.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {member.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <Card className="hover-lift border-0 shadow-soft overflow-hidden">
+                    <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 text-center">
+                      <motion.div 
+                        className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4"
+                        animate={{ 
+                          y: [0, -5, 0],
+                          rotate: [0, 2, 0]
+                        }}
+                        transition={{ 
+                          duration: 3 + index * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        {member.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </motion.div>
+                      <CardTitle className="text-xl">{member.name}</CardTitle>
+                      <CardDescription className="font-medium text-primary">
+                        {member.role}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                        {member.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -215,48 +273,107 @@ const About = () => {
 
       {/* Mission Statement */}
       <section className="py-20 bg-gradient-hero text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-8">
-            <Award className="h-16 w-16 mx-auto mb-6 text-white/80" />
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Award className="h-16 w-16 mx-auto mb-6 text-white/80" />
+            </motion.div>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Our Mission
+            </motion.h2>
+            <motion.p 
+              className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              "At PIQUEFAME, our mission is to help brands cut through the noise
+              with creativity, clarity, and strategy. We exist to turn everyday
+              businesses into unforgettable digital experiences — building not
+              just campaigns, but communities, conversations, and growth."
+            </motion.p>
+            <motion.div 
+              className="flex items-center justify-center gap-2 text-white/60"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Coffee className="h-5 w-5" />
+              <span>Fueled by creativity and great coffee</span>
+            </motion.div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
-          <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-            "At PIQUEFAME, our mission is to help brands cut through the noise
-            with creativity, clarity, and strategy. We exist to turn everyday
-            businesses into unforgettable digital experiences — building not
-            just campaigns, but communities, conversations, and growth."
-          </p>
-          <div className="flex items-center justify-center gap-2 text-white/60">
-            <Coffee className="h-5 w-5" />
-            <span>Fueled by creativity and great coffee</span>
-          </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Work <span className="text-gradient">Together?</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We'd love to learn more about your brand and explore how we can help
-            you achieve your goals. Let's start a conversation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="https://wa.me/917358250143">
-              <Button size="lg" className="bg-gradient-primary hover-lift">
-                Get A Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/portfolio">
-              <Button size="lg" variant="outline" className="hover-lift">
-                View Our Work
-              </Button>
-            </Link>
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Ready to Work <span className="text-gradient">Together?</span>
+            </motion.h2>
+            <motion.p 
+              className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              We'd love to learn more about your brand and explore how we can help
+              you achieve your goals. Let's start a conversation.
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Link to="https://wa.me/917358250143">
+                  <Button size="lg" className="bg-gradient-primary hover-lift">
+                    Get A Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </Tilt>
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Link to="/portfolio">
+                  <Button size="lg" variant="outline" className="hover-lift">
+                    View Our Work
+                  </Button>
+                </Link>
+              </Tilt>
+            </motion.div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
     </div>
   );

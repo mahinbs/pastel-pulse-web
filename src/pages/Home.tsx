@@ -17,6 +17,9 @@ import {
 } from "@/components/ui/accordion";
 import Portfolio from "@/components/Portfolio";
 import ContactForm from "@/components/ContactForm";
+import AnimatedSection from "@/components/AnimatedSection";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 import heroGif from "@/assets/hero-section-gif.gif";
 import brandingSolutionIcon from "@/assets/svgs/branding_solution.png";
 import socialMediaMarketingIcon from "@/assets/svgs/social_media_marketing.png";
@@ -218,78 +221,148 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-[65%,1fr] gap-12 items-center">
             {/* Left Side - Text Content */}
-            <div className="text-center lg:text-left text-black">
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                  <Star className="h-6 w-6 text-white" />
-                </div>
-                <span className="text-xl md:text-2xl font-semibold">
-                  We're PIQUEFAME
-                </span>
-              </div>
-
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-                <span className="block text-black">
-                  We build brands that get
-                  </span>
-                <span className="block text-black">seen and chosen</span>
-                </h1>
-
-              <p className="text-xl md:text-2xl mb-6 text-gray-700 font-semibold">
-                Chennai-born. Creator-led. Performance-driven.
-              </p>
-
-              <div className="text-base md:text-lg mb-6 text-gray-700 font-medium">
-                <span className="block">
-                  Fresh Ideas, Bold Beginnings | 10+ Brands Trusted | 50+
-                  Campaigns Delivered
-                </span>
-              </div>
-
-              <div className="text-base md:text-lg mb-6 text-gray-700 space-y-2">
-                <div className="flex items-start justify-center lg:justify-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Hands-on strategy + in-house content</span>
-                </div>
-                <div className="flex items-start justify-center lg:justify-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Media buying that respects your rupee</span>
-                </div>
-              </div>
-
-              <p className="text-lg mb-8 text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                A dynamic startup driven by creativity, helping businesses craft
-                their identity and build digital footprints with design-led
-                solutions.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button
-                  size="lg"
-                  className="bg-primary text-white hover:bg-primary/90 hover-lift"
-                  onClick={() => window.open("https://wa.me/917358250143", "_blank")}
+            <AnimatedSection direction="left" delay={0.2}>
+              <div className="text-center lg:text-left text-black">
+                <motion.div 
+                  className="flex items-center justify-center lg:justify-start gap-3 mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                  Work with Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <Star className="h-6 w-6 text-white" />
+                  </div>
+                  <span className="text-xl md:text-2xl font-semibold">
+                    We're PIQUEFAME
+                  </span>
+                </motion.div>
 
-            {/* Right Side - Animated GIF */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative max-w-md w-full">
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl hover-lift">
-                  <img
-                    src={heroGif}
-                    alt="Branding Animation"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Floating elements for visual interest */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full opacity-80 animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary rounded-full opacity-60 animate-bounce"></div>
+                <motion.h1 
+                  className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                >
+                  <span className="block text-black">
+                    We build brands that get
+                    </span>
+                  <span className="block text-black">seen and chosen</span>
+                  </motion.h1>
+
+                <motion.p 
+                  className="text-xl md:text-2xl mb-6 text-gray-700 font-semibold"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                >
+                  Chennai-born. Creator-led. Performance-driven.
+                </motion.p>
+
+                <motion.div 
+                  className="text-base md:text-lg mb-6 text-gray-700 font-medium"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.6 }}
+                >
+                  <span className="block">
+                    Fresh Ideas, Bold Beginnings | 10+ Brands Trusted | 50+
+                    Campaigns Delivered
+                  </span>
+                </motion.div>
+
+                <motion.div 
+                  className="text-base md:text-lg mb-6 text-gray-700 space-y-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.1, duration: 0.6 }}
+                >
+                  <div className="flex items-start justify-center lg:justify-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                    <span>Hands-on strategy + in-house content</span>
+                  </div>
+                  <div className="flex items-start justify-center lg:justify-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                    <span>Media buying that respects your rupee</span>
+                  </div>
+                </motion.div>
+
+                <motion.p 
+                  className="text-lg mb-8 text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3, duration: 0.6 }}
+                >
+                  A dynamic startup driven by creativity, helping businesses craft
+                  their identity and build digital footprints with design-led
+                  solutions.
+                </motion.p>
+
+                <motion.div 
+                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5, duration: 0.6 }}
+                >
+                  <Button
+                    size="lg"
+                    className="bg-primary text-white hover:bg-primary/90 hover-lift"
+                    onClick={() => window.open("https://wa.me/917358250143", "_blank")}
+                  >
+                    Work with Us
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </motion.div>
               </div>
-            </div>
+            </AnimatedSection>
+
+            {/* Right Side - Animated GIF with Tilt */}
+            <AnimatedSection direction="right" delay={0.4}>
+              <div className="flex justify-center lg:justify-end">
+                <Tilt
+                  tiltMaxAngleX={15}
+                  tiltMaxAngleY={15}
+                  perspective={1000}
+                  scale={1.05}
+                  transitionSpeed={1000}
+                  gyroscope={true}
+                >
+                  <div className="relative max-w-md w-full">
+                    <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl hover-lift">
+                      <img
+                        src={heroGif}
+                        alt="Branding Animation"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    {/* Floating elements for visual interest */}
+                    <motion.div 
+                      className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full opacity-80"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.8, 1, 0.8]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    ></motion.div>
+                    <motion.div 
+                      className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary rounded-full opacity-60"
+                      animate={{ 
+                        y: [0, -10, 0],
+                        rotate: [0, 180, 360]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    ></motion.div>
+                  </div>
+                </Tilt>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -393,14 +466,46 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground font-medium">
-                  {stat.label}
-                </div>
-              </div>
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <Tilt
+                  tiltMaxAngleX={5}
+                  tiltMaxAngleY={5}
+                  perspective={1000}
+                  scale={1.05}
+                  transitionSpeed={1000}
+                  gyroscope={true}
+                >
+                  <motion.div 
+                    className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <motion.div 
+                      className="text-3xl md:text-4xl font-bold text-primary mb-2"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ 
+                        delay: index * 0.2 + 0.5,
+                        duration: 0.5,
+                        type: "spring",
+                        stiffness: 200
+                      }}
+                    >
+                      {stat.number}
+                    </motion.div>
+                    <motion.div 
+                      className="text-muted-foreground font-medium"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        delay: index * 0.2 + 0.7,
+                        duration: 0.5
+                      }}
+                    >
+                      {stat.label}
+                    </motion.div>
+                  </motion.div>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -417,50 +522,68 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card
-                key={index}
-                className={`group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white hover:ring-2 ring-orange-500`}
-              >
-                {/* Background Image - Blurred */}
-                <div className="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover blur-[2.5px]"
-                  />
-                </div>
-
-                {/* Gradient Overlay */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
-                ></div>
-
-                <CardHeader className="relative z-10 text-center pb-4">
-                  <div
-                    className={`w-24 h-24 bg-white/40 rounded-xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 p-3 animate-float`}
-                    style={{ animationDelay: `${index * 0.2}s` }}
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <Card
+                    className={`group relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white hover:ring-2 ring-orange-500`}
                   >
-                    <img
-                      src={service.iconUrl}
-                      alt={service.title}
-                      className="w-full h-full object-contain aspect-square group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-black group-hover:text-gray-800 transition-colors">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative z-10 text-center">
-                  <CardDescription className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
+                    {/* Background Image - Blurred */}
+                    <div className="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover blur-[2.5px]"
+                      />
+                    </div>
 
-                {/* Hover Effect Overlay */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                ></div>
-              </Card>
+                    {/* Gradient Overlay */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                    ></div>
+
+                    <CardHeader className="relative z-10 text-center pb-4">
+                      <motion.div
+                        className={`w-24 h-24 bg-white/40 rounded-xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 p-3`}
+                        animate={{ 
+                          y: [0, -8, 0],
+                          rotate: [0, 2, 0]
+                        }}
+                        transition={{ 
+                          duration: 4 + index * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <img
+                          src={service.iconUrl}
+                          alt={service.title}
+                          className="w-full h-full object-contain aspect-square group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </motion.div>
+                      <CardTitle className="text-xl font-bold text-black group-hover:text-gray-800 transition-colors">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="relative z-10 text-center">
+                      <CardDescription className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors">
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+
+                    {/* Hover Effect Overlay */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                    ></div>
+                  </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -795,37 +918,62 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-black">
-              Clients Testimonials
-            </h2>
-            {/* Pagination Dots */}
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    index === currentTestimonial
-                      ? "bg-orange-500"
-                      : "bg-gray-300"
-                  }`}
-                ></div>
-              ))}
+          <AnimatedSection>
+            <div className="flex justify-between items-center mb-12">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold text-black"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Clients Testimonials
+              </motion.h2>
+              {/* Pagination Dots */}
+              <motion.div 
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                {testimonials.map((_, index) => (
+                  <motion.div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                      index === currentTestimonial
+                        ? "bg-orange-500"
+                        : "bg-gray-300"
+                    }`}
+                    animate={{
+                      scale: index === currentTestimonial ? 1.5 : 1,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  ></motion.div>
+                ))}
+              </motion.div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Auto-sliding Testimonial Card */}
-          <div className="max-w-6xl mx-auto">
-            <div className="relative overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentTestimonial * 100}%)`,
-                }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-2">
-                    <Card className="p-8 md:p-16 shadow-2xl border-0 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 relative min-h-[450px] rounded-3xl overflow-hidden backdrop-blur-sm">
+          <AnimatedSection delay={0.3}>
+            <div className="max-w-6xl mx-auto">
+              <div className="relative overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentTestimonial * 100}%)`,
+                  }}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-2">
+                      <Tilt
+                        tiltMaxAngleX={5}
+                        tiltMaxAngleY={5}
+                        perspective={1000}
+                        scale={1.02}
+                        transitionSpeed={1000}
+                        gyroscope={true}
+                      >
+                        <Card className="p-8 md:p-16 shadow-2xl border-0 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 relative min-h-[450px] rounded-3xl overflow-hidden backdrop-blur-sm">
                       {/* Decorative Elements */}
                       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
                       <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/5 rounded-full -ml-24 -mb-24"></div>
@@ -873,12 +1021,14 @@ const Home = () => {
                         {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
-                    </Card>
-                  </div>
-                ))}
+                        </Card>
+                      </Tilt>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -888,27 +1038,53 @@ const Home = () => {
       {/* Pricing Section */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-6 py-3 bg-orange-500 text-white rounded-full mb-6 font-semibold">
-              Starting from ₹15,000 + GST/Month
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <motion.div 
+                className="inline-block px-6 py-3 bg-orange-500 text-white rounded-full mb-6 font-semibold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Starting from ₹15,000 + GST/Month
+              </motion.div>
+              <motion.h2 
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Choose Your
+                <br />
+                <span className="text-orange-500">Growth Path</span>
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-gray-600 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Flexible packages designed to scale with your ambitions
+                <br />
+                <span className="text-sm text-gray-500">
+                  (exclusive of ad spend)
+                </span>
+              </motion.p>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-              Choose Your
-              <br />
-              <span className="text-orange-500">Growth Path</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Flexible packages designed to scale with your ambitions
-              <br />
-              <span className="text-sm text-gray-500">
-                (exclusive of ad spend)
-              </span>
-            </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Monthly Package 1 - Starter */}
-            <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+            <AnimatedSection delay={0.2}>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={800}
+                gyroscope={true}
+              >
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/10 to-red-400/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-300/5 to-yellow-300/5 rounded-full translate-y-12 -translate-x-12"></div>
               <div className="relative z-10 p-8 flex flex-col h-full">
@@ -969,8 +1145,19 @@ const Home = () => {
                 </div>
               </div>
             </Card>
+              </Tilt>
+            </AnimatedSection>
 
             {/* Monthly Package 2 - Basic */}
+            <AnimatedSection delay={0.4}>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={800}
+                gyroscope={true}
+              >
             <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-300/5 to-indigo-300/5 rounded-full translate-y-12 -translate-x-12"></div>
@@ -1044,12 +1231,23 @@ const Home = () => {
                 </div>
               </div>
             </Card>
+              </Tilt>
+            </AnimatedSection>
           </div>
 
           {/* Second Row - 2 Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             {/* Monthly Package 3 - Advanced */}
-            <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+            <AnimatedSection delay={0.6}>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={800}
+                gyroscope={true}
+              >
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-300/5 to-teal-300/5 rounded-full translate-y-12 -translate-x-12"></div>
               <div className="relative z-10 p-8 flex flex-col h-full">
@@ -1133,8 +1331,19 @@ const Home = () => {
                 </div>
               </div>
             </Card>
+              </Tilt>
+            </AnimatedSection>
 
             {/* Monthly Package 4 - Premium */}
+            <AnimatedSection delay={0.8}>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={800}
+                gyroscope={true}
+              >
             <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-300/5 to-pink-300/5 rounded-full translate-y-12 -translate-x-12"></div>
@@ -1228,28 +1437,51 @@ const Home = () => {
                 </div>
               </div>
             </Card>
+              </Tilt>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8">
-            Ready to PIQUE some interest? <br /> Let's turn your brand into
-            everyone's FAME.
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover-lift"
-              onClick={() => window.open("https://wa.me/917358250143", "_blank")}
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Let's Begin
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              Ready to PIQUE some interest? <br /> Let's turn your brand into
+              everyone's FAME.
+            </motion.h2>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 hover-lift"
+                  onClick={() => window.open("https://wa.me/917358250143", "_blank")}
+                >
+                  Let's Begin
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Tilt>
+            </motion.div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Contact Us Section */}

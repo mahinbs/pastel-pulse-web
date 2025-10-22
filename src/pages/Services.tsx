@@ -13,6 +13,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import AnimatedSection from "@/components/AnimatedSection";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 import brandingSolutionIcon from "@/assets/svgs/branding_solution.png";
 import socialMediaMarketingIcon from "@/assets/svgs/social_media_marketing.png";
 import webDesignIcon from "@/assets/svgs/web_design.png";
@@ -141,24 +144,38 @@ const Services = () => {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-medium mb-8 animate-fade-in">
-            <span className="w-2 h-2 bg-white rounded-full animate-ping"></span>
-            <span>Our Services</span>
-          </div>
+          <AnimatedSection>
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-medium mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="w-2 h-2 bg-white rounded-full animate-ping"></span>
+              <span>Our Services</span>
+            </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 animate-fade-in-up">
-            Strategy + Creativity +{" "}
-            <span className="text-orange-500">Digital Magic</span>
-          </h1>
-          <p
-            className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            We mix strategy with a splash of creativity and a pinch of digital
-            magic. Whether it's building your brand, crafting content, or
-            running ads that actually convert — we make sure your business
-            shines brighter and louder online.
-          </p>
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Strategy + Creativity +{" "}
+              <span className="text-orange-500">Digital Magic</span>
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              We mix strategy with a splash of creativity and a pinch of digital
+              magic. Whether it's building your brand, crafting content, or
+              running ads that actually convert — we make sure your business
+              shines brighter and louder online.
+            </motion.p>
+          </AnimatedSection>
         </div>
 
         <style>{`
@@ -207,10 +224,18 @@ const Services = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {services.map((service, index) => (
-              <Card
-                key={index}
-                className="hover-lift border-0 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl"
-              >
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <Card
+                    className="hover-lift border-0 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl"
+                  >
                 <CardHeader
                   className={`bg-gradient-to-br ${service.gradient} text-white pb-6 relative overflow-hidden sm:aspect-[3/2]`}
                   style={{
@@ -276,17 +301,19 @@ const Services = () => {
                     </p>
                     </div>
 
-                  <Button
-                    onClick={() =>
-                      window.open("https://wa.me/917358250143", "_blank")
-                    }
-                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover-lift"
-                  >
+                    <Button
+                      onClick={() =>
+                        window.open("https://wa.me/917358250143", "_blank")
+                      }
+                      className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover-lift"
+                    >
                       Get Started
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                 </CardContent>
               </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -295,28 +322,62 @@ const Services = () => {
       {/* Game Plan Section */}
       <section className="py-20 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Our <span className="text-gradient">Game Plan</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From strategy to scale — here's how we bring your brand to life.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                Our <span className="text-gradient">Game Plan</span>
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-muted-foreground max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                From strategy to scale — here's how we bring your brand to life.
+              </motion.p>
+            </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {step.step}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <Tilt
+                  tiltMaxAngleX={5}
+                  tiltMaxAngleY={5}
+                  perspective={1000}
+                  scale={1.05}
+                  transitionSpeed={1000}
+                  gyroscope={true}
+                >
+                  <div className="text-center group">
+                    <motion.div 
+                      className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+                      animate={{ 
+                        y: [0, -5, 0],
+                        rotate: [0, 2, 0]
+                      }}
+                      transition={{ 
+                        duration: 3 + index * 0.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {step.step}
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -326,107 +387,155 @@ const Services = () => {
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Why Choose <span className="text-gradient">Piquefame?</span>
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <Award className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      Fresh Minds, Bold Ideas
-                    </h3>
-                    <p className="text-muted-foreground">
-                      We're a new-age team that thinks fast, moves faster, and
-                      loves breaking the boring.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      Startup Energy, Big Impact
-                    </h3>
-                    <p className="text-muted-foreground">
-                      As a Chennai-based startup, we hustle like you — every
-                      reel, ad, and post is built to perform.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <CheckCircle className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      Results You Can Count (and Flaunt)
-                    </h3>
-                    <p className="text-muted-foreground">
-                      From clicks to conversions, we keep the numbers real and
-                      the growth measurable.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <Users className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      People Love Working With Us
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Clients stick around because we listen, we deliver, and we
-                      make the process fun.
-                    </p>
-                  </div>
+            <AnimatedSection direction="left" delay={0.2}>
+              <div>
+                <motion.h2 
+                  className="text-3xl md:text-4xl font-bold mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Why Choose <span className="text-gradient">Piquefame?</span>
+                </motion.h2>
+                <div className="space-y-6">
+                  {[
+                    {
+                      icon: <Award className="h-6 w-6" />,
+                      title: "Fresh Minds, Bold Ideas",
+                      description: "We're a new-age team that thinks fast, moves faster, and loves breaking the boring."
+                    },
+                    {
+                      icon: <TrendingUp className="h-6 w-6" />,
+                      title: "Startup Energy, Big Impact",
+                      description: "As a Chennai-based startup, we hustle like you — every reel, ad, and post is built to perform."
+                    },
+                    {
+                      icon: <CheckCircle className="h-6 w-6" />,
+                      title: "Results You Can Count (and Flaunt)",
+                      description: "From clicks to conversions, we keep the numbers real and the growth measurable."
+                    },
+                    {
+                      icon: <Users className="h-6 w-6" />,
+                      title: "People Love Working With Us",
+                      description: "Clients stick around because we listen, we deliver, and we make the process fun."
+                    }
+                  ].map((item, index) => (
+                    <motion.div 
+                      key={index}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    >
+                      <motion.div 
+                        className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0"
+                        animate={{ 
+                          rotate: [0, 5, 0],
+                          scale: [1, 1.05, 1]
+                        }}
+                        transition={{ 
+                          duration: 2 + index * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </div>
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">98%</div>
-              <div className="text-lg font-semibold mb-4">
-                Client Satisfaction Rate
-              </div>
-              <p className="text-muted-foreground mb-6">
-                Our commitment to excellence shows in our client retention and
-                satisfaction scores.
-              </p>
-              <Button size="lg" className="bg-gradient-primary hover-lift">
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right" delay={0.4}>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={800}
+                gyroscope={true}
+              >
+                <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 text-center">
+                  <motion.div 
+                    className="text-4xl font-bold text-primary mb-2"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ 
+                      delay: 0.8,
+                      duration: 0.5,
+                      type: "spring",
+                      stiffness: 200
+                    }}
+                  >
+                    98%
+                  </motion.div>
+                  <div className="text-lg font-semibold mb-4">
+                    Client Satisfaction Rate
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Our commitment to excellence shows in our client retention and
+                    satisfaction scores.
+                  </p>
+                  <Button size="lg" className="bg-gradient-primary hover-lift">
+                    Start Your Project
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </Tilt>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8">
-            Ready to PIQUE some interest? Let's turn your brand into everyone's
-            FAME.
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover-lift"
-              onClick={() =>
-                window.open("https://wa.me/917358250143", "_blank")
-              }
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Get A Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              Ready to PIQUE some interest? Let's turn your brand into everyone's
+              FAME.
+            </motion.h2>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 hover-lift"
+                  onClick={() =>
+                    window.open("https://wa.me/917358250143", "_blank")
+                  }
+                >
+                  Get A Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Tilt>
+            </motion.div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
     </div>
   );

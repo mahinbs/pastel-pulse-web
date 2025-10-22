@@ -2,6 +2,9 @@ import { ArrowRight, Check, Star, Zap, Award, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
+import AnimatedSection from '@/components/AnimatedSection';
 
 const Pricing = () => {
   const plans = [
@@ -113,13 +116,25 @@ const Pricing = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Simple, Transparent <span className="text-white/90">Pricing</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Choose the perfect plan for your business. All plans include our signature 
-            attention to detail and commitment to your success.
-          </p>
+          <AnimatedSection>
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Simple, Transparent <span className="text-white/90">Pricing</span>
+            </motion.h1>
+            <motion.p 
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Choose the perfect plan for your business. All plans include our signature 
+              attention to detail and commitment to your success.
+            </motion.p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -128,46 +143,96 @@ const Pricing = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <Card key={index} className={`relative hover-lift border-0 shadow-medium overflow-hidden ${plan.popular ? 'ring-2 ring-primary shadow-strong' : ''}`}>
-                {plan.badge && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-primary text-white text-center py-2 text-sm font-medium">
-                    {plan.badge}
-                  </div>
-                )}
-                
-                <CardHeader className={`text-center ${plan.badge ? 'pt-12' : 'pt-6'}`}>
-                  <CardTitle className="text-2xl font-bold mb-2">
-                    {plan.name}
-                  </CardTitle>
-                  <div className="mb-4">
-                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                    <span className="text-muted-foreground">{plan.period}</span>
-                  </div>
-                  <CardDescription className="leading-relaxed">
-                    {plan.description}
-                  </CardDescription>
-                </CardHeader>
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <Card className={`relative hover-lift border-0 shadow-medium overflow-hidden ${plan.popular ? 'ring-2 ring-primary shadow-strong' : ''}`}>
+                    {plan.badge && (
+                      <motion.div 
+                        className="absolute top-0 left-0 right-0 bg-gradient-primary text-white text-center py-2 text-sm font-medium"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                      >
+                        {plan.badge}
+                      </motion.div>
+                    )}
+                    
+                    <CardHeader className={`text-center ${plan.badge ? 'pt-12' : 'pt-6'}`}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
+                      >
+                        <CardTitle className="text-2xl font-bold mb-2">
+                          {plan.name}
+                        </CardTitle>
+                        <div className="mb-4">
+                          <span className="text-4xl font-bold text-primary">{plan.price}</span>
+                          <span className="text-muted-foreground">{plan.period}</span>
+                        </div>
+                        <CardDescription className="leading-relaxed">
+                          {plan.description}
+                        </CardDescription>
+                      </motion.div>
+                    </CardHeader>
 
-                <CardContent>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <CardContent>
+                      <motion.ul 
+                        className="space-y-3 mb-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                      >
+                        {plan.features.map((feature, featureIndex) => (
+                          <motion.li 
+                            key={featureIndex} 
+                            className="flex items-start gap-3"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                              duration: 0.4, 
+                              delay: 0.7 + index * 0.2 + featureIndex * 0.1 
+                            }}
+                          >
+                            <motion.div
+                              whileHover={{ scale: 1.2, rotate: 5 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                            </motion.div>
+                            <span className="text-muted-foreground">{feature}</span>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
 
-                  <Button 
-                    size="lg" 
-                    className={`w-full hover-lift ${plan.popular ? 'bg-gradient-primary' : ''}`}
-                    variant={plan.popular ? 'default' : 'outline'}
-                  >
-                    {plan.cta}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </CardContent>
-              </Card>
+                      <Tilt
+                        tiltMaxAngleX={8}
+                        tiltMaxAngleY={8}
+                        perspective={1000}
+                        scale={1.05}
+                        transitionSpeed={1000}
+                        gyroscope={true}
+                      >
+                        <Button 
+                          size="lg" 
+                          className={`w-full hover-lift ${plan.popular ? 'bg-gradient-primary' : ''}`}
+                          variant={plan.popular ? 'default' : 'outline'}
+                        >
+                          {plan.cta}
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </Tilt>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -176,34 +241,77 @@ const Pricing = () => {
       {/* Project-Based Pricing */}
       <section className="py-20 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Project-Based <span className="text-gradient">Pricing</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Prefer to work on a project basis? Here's our pricing for individual services.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Project-Based <span className="text-gradient">Pricing</span>
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-muted-foreground max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Prefer to work on a project basis? Here's our pricing for individual services.
+              </motion.p>
+            </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((category, index) => (
-              <Card key={index} className="border-0 shadow-soft hover-lift">
-                <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5">
-                  <CardTitle className="text-xl font-bold text-center">
-                    {category.category}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <div className="space-y-4">
-                    {category.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex justify-between items-center pb-3 border-b border-border last:border-b-0">
-                        <span className="font-medium">{item.service}</span>
-                        <span className="text-primary font-semibold">{item.price}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <Tilt
+                  tiltMaxAngleX={8}
+                  tiltMaxAngleY={8}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <Card className="border-0 shadow-soft hover-lift">
+                    <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
+                      >
+                        <CardTitle className="text-xl font-bold text-center">
+                          {category.category}
+                        </CardTitle>
+                      </motion.div>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <motion.div 
+                        className="space-y-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                      >
+                        {category.items.map((item, itemIndex) => (
+                          <motion.div 
+                            key={itemIndex} 
+                            className="flex justify-between items-center pb-3 border-b border-border last:border-b-0"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                              duration: 0.4, 
+                              delay: 0.7 + index * 0.2 + itemIndex * 0.1 
+                            }}
+                          >
+                            <span className="font-medium">{item.service}</span>
+                            <span className="text-primary font-semibold">{item.price}</span>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -212,29 +320,63 @@ const Pricing = () => {
       {/* FAQ Section */}
       <section className="py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked <span className="text-gradient">Questions</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Have questions? We've got answers to help you make the right choice.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Frequently Asked <span className="text-gradient">Questions</span>
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-muted-foreground"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Have questions? We've got answers to help you make the right choice.
+              </motion.p>
+            </div>
+          </AnimatedSection>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <Card key={index} className="border-0 shadow-soft hover-lift">
-                <CardHeader>
-                  <CardTitle className="text-lg font-semibold">
-                    {faq.question}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <Tilt
+                  tiltMaxAngleX={5}
+                  tiltMaxAngleY={5}
+                  perspective={1000}
+                  scale={1.01}
+                  transitionSpeed={1000}
+                  gyroscope={true}
+                >
+                  <Card className="border-0 shadow-soft hover-lift">
+                    <CardHeader>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                      >
+                        <CardTitle className="text-lg font-semibold">
+                          {faq.question}
+                        </CardTitle>
+                      </motion.div>
+                    </CardHeader>
+                    <CardContent>
+                      <motion.p 
+                        className="text-muted-foreground leading-relaxed"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      >
+                        {faq.answer}
+                      </motion.p>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -243,34 +385,77 @@ const Pricing = () => {
       {/* Trust Signals */}
       <section className="py-20 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="text-gradient">Piquefame?</span>
-            </h2>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Why Choose <span className="text-gradient">Piquefame?</span>
+              </motion.h2>
+            </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                <Award className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Award-Winning Work</h3>
-              <p className="text-muted-foreground">Recognized by industry leaders for excellence in design and strategy.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                <Star className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">98% Client Satisfaction</h3>
-              <p className="text-muted-foreground">Our clients love working with us and frequently refer new business.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                <Zap className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Fast Turnaround</h3>
-              <p className="text-muted-foreground">We deliver high-quality work on time, every time.</p>
-            </div>
+            {[
+              {
+                icon: Award,
+                title: "Award-Winning Work",
+                description: "Recognized by industry leaders for excellence in design and strategy.",
+                gradient: "bg-gradient-primary"
+              },
+              {
+                icon: Star,
+                title: "98% Client Satisfaction",
+                description: "Our clients love working with us and frequently refer new business.",
+                gradient: "bg-gradient-secondary"
+              },
+              {
+                icon: Zap,
+                title: "Fast Turnaround",
+                description: "We deliver high-quality work on time, every time.",
+                gradient: "bg-gradient-accent"
+              }
+            ].map((item, index) => (
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <Tilt
+                  tiltMaxAngleX={8}
+                  tiltMaxAngleY={8}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={800}
+                  gyroscope={true}
+                >
+                  <div className="text-center">
+                    <motion.div 
+                      className={`w-16 h-16 ${item.gradient} rounded-full flex items-center justify-center text-white mx-auto mb-4`}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <item.icon className="h-8 w-8" />
+                    </motion.div>
+                    <motion.h3 
+                      className="text-xl font-semibold mb-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
+                    >
+                      {item.title}
+                    </motion.h3>
+                    <motion.p 
+                      className="text-muted-foreground"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                    >
+                      {item.description}
+                    </motion.p>
+                  </div>
+                </Tilt>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -278,23 +463,58 @@ const Pricing = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Still have questions? We'd love to discuss your project and create 
-            a custom solution that fits your needs and budget.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover-lift">
-              <Phone className="mr-2 h-5 w-5" />
-              Schedule a Call
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover-lift">
-              <Mail className="mr-2 h-5 w-5" />
-              Get a Quote
-            </Button>
-          </div>
+          <AnimatedSection>
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Ready to Get Started?
+            </motion.h2>
+            <motion.p 
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Still have questions? We'd love to discuss your project and create 
+              a custom solution that fits your needs and budget.
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover-lift">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Schedule a Call
+                </Button>
+              </Tilt>
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={1000}
+                gyroscope={true}
+              >
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover-lift">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get a Quote
+                </Button>
+              </Tilt>
+            </motion.div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
