@@ -31,13 +31,13 @@ const About = () => {
     },
     {
       name: "Rekha S",
-      role: "Digital Marketing Lead",
+      role: "Head of Brand Strategy and Growth from Digital Marketing Lead",
       description:
         "A growth-driven strategist who knows how to make every click count.",
     },
     {
       name: "Aishwarya A",
-      role: "Brand Strategist",
+      role: "Digital Marketing Head from Brand Strategist",
       description:
         "A sharp storyteller who helps brands find their true voice and place in the market.",
     },
@@ -233,8 +233,9 @@ const About = () => {
                   scale={1.02}
                   transitionSpeed={800}
                   gyroscope={true}
+                  className="h-full"
                 >
-                  <Card className="hover-lift border-0 shadow-soft overflow-hidden">
+                  <Card className="hover-lift border-0 shadow-soft overflow-hidden h-full">
                     <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 text-center">
                       <motion.div 
                         className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4"

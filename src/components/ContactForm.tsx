@@ -92,7 +92,7 @@ ${data.message}
               transitionSpeed={1000}
               gyroscope={true}
             >
-              <Card className="p-16 shadow-2xl border-0 bg-white relative overflow-hidden rounded-3xl">
+              <Card className="px-6 py-10 sm:p-16 shadow-2xl border-0 bg-white relative overflow-hidden rounded-3xl">
                 {/* Background Decorative Elements */}
                 <motion.div 
                   className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-full opacity-50"
@@ -356,7 +356,7 @@ ${data.message}
                           >
                             <div className="flex items-start gap-4">
                               <motion.div 
-                                className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                                className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl hidden sm:flex items-center justify-center flex-shrink-0"
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ duration: 0.2 }}
                               >
@@ -394,7 +394,7 @@ ${data.message}
                           >
                             <div className="flex items-start gap-4">
                               <motion.div 
-                                className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                                className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl hidden sm:flex items-center justify-center flex-shrink-0"
                                 whileHover={{ scale: 1.1, rotate: -5 }}
                                 transition={{ duration: 0.2 }}
                               >

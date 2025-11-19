@@ -246,7 +246,7 @@ const Services = () => {
                   }}
                 >
                   {/* Background decoration */}
-                  <div className="absolute inset-0 h-full w-full bg-black/60"></div>
+                  <div className="absolute inset-0 h-full w-full bg-orange-500/50 brightness-75"></div>
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
@@ -264,10 +264,10 @@ const Services = () => {
                   <CardTitle className="text-2xl font-bold mb-2">
                     {service.title}
                   </CardTitle>
-                    <p className="text-white/90 font-medium text-lg mb-3">
+                    <p className="text-white/95 font-medium text-lg mb-3">
                       {service.subtitle}
                     </p>
-                    <CardDescription className="text-white/80 text-base leading-relaxed">
+                    <CardDescription className="text-white/95 text-base leading-relaxed">
                     {service.description}
                   </CardDescription>
                   </div>

@@ -12,7 +12,7 @@ const Portfolio = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=300&fit=crop&crop=center",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761906269/Jobha_Image_kuftlv.jpg",
       title: "Jobha Cosmetics",
       category: "Campaign Strategy",
       year: "2024",
@@ -30,8 +30,8 @@ const Portfolio = () => {
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=center",
-      title: "V4 Exports",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761905638/home_msql6a.png",
+      title: "V4 Homes & Properties",
       category: "Lead Generation",
       year: "2024",
       badgeClass: "bg-blue-100 text-blue-600",
@@ -47,7 +47,7 @@ const Portfolio = () => {
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=300&fit=crop&crop=center",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761903308/Physiq_image_jop3yn.jpg",
       title: "Physiq",
       category: "E-Commerce Website",
       year: "2024",
@@ -65,7 +65,7 @@ const Portfolio = () => {
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop&crop=center",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761905661/JS_Laboratories_mxsqmq.jpg",
       title: "JS Laboratories",
       category: "Branding Strategy",
       year: "2024",

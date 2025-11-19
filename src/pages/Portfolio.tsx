@@ -9,29 +9,33 @@ const Portfolio = () => {
 
   const projects = [
     {
-      id: 1,
-      title: "Jobha Cosmetics",
-      category: "Campaign Strategy",
+      id: 4,
+      title: "JS Laboratories",
+      category: "Branding Strategy",
       description:
-        "Blended South-Indian tradition with modern skincare through digital storytelling.",
+        "Developed a strong brand identity for JS Laboratories, positioning it as a premium, GMP-compliant personal care and cosmetic manufacturing partner.",
       image:
-        "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop&crop=center",
-      tags: ["Campaign Strategy", "Influencer Marketing", "Social Media"],
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761905661/JS_Laboratories_mxsqmq.jpg",
+      tags: ["Branding", "Visual Identity", "Corporate Communication"],
       date: "2024",
-      results: ["2.3M+ impressions", "180K+ engagements", "35% sales uplift"],
+      results: [
+        "Stronger industry presence",
+        "Clear, professional identity",
+        "Increased credibility with pharma & cosmetic brands",
+      ],
       challenge:
-        "Jobha Cosmetics needed to bridge traditional South-Indian beauty practices with modern skincare expectations while building brand awareness in a competitive market.",
+        "JS Laboratories needed to establish itself as a premium, trustworthy manufacturing partner in the highly competitive pharmaceutical and cosmetic manufacturing industry.",
       solution:
-        "We created an influencer-led campaign featuring regional ads across Instagram and Facebook, celebrating heritage while showcasing innovation. The storytelling approach resonated deeply with the target audience.",
+        "We crafted a comprehensive brand identity including logo applications, brand colors, messaging guidelines, and corporate tone that reflects trust, innovation, and scientific excellence. The result is a cohesive brand that commands respect in the industry.",
     },
     {
       id: 2,
-      title: "V4 Exports",
+      title: "V4 Homes & Properties",
       category: "Lead Generation",
       description:
         "Created a targeted lead-generation funnel for global buyers on Social media & trade networks.",
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&crop=center",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761905638/home_msql6a.png",
       tags: ["Lead Generation", "Email Marketing", "B2B"],
       date: "2024",
       results: [
@@ -51,7 +55,7 @@ const Portfolio = () => {
       description:
         "Designed a sleek, user-friendly store showcasing Physiq's sports recovery products.",
       image:
-        "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop&crop=center",
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761903308/Physiq_image_jop3yn.jpg",
       tags: ["Web Design", "E-Commerce", "Content Strategy"],
       date: "2024",
       results: [
@@ -64,25 +68,22 @@ const Portfolio = () => {
       solution:
         "We developed a modern, performance-focused website with compelling product descriptions, educational blog-style guides, and high-quality visual assets. The design speaks directly to the fitness community.",
     },
+
     {
-      id: 4,
-      title: "JS Laboratories",
-      category: "Branding Strategy",
+      id: 1,
+      title: "Jobha Cosmetics",
+      category: "Campaign Strategy",
       description:
-        "Developed a strong brand identity for JS Laboratories, positioning it as a premium, GMP-compliant personal care and cosmetic manufacturing partner.",
+        "Blended South-Indian tradition with modern skincare through digital storytelling.",
       image:
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&h=600&fit=crop&crop=center",
-      tags: ["Branding", "Visual Identity", "Corporate Communication"],
+        "https://res.cloudinary.com/drvsbodf2/image/upload/v1761906269/Jobha_Image_kuftlv.jpg",
+      tags: ["Campaign Strategy", "Influencer Marketing", "Social Media"],
       date: "2024",
-      results: [
-        "Stronger industry presence",
-        "Clear, professional identity",
-        "Increased credibility with pharma & cosmetic brands",
-      ],
+      results: ["2.3M+ impressions", "180K+ engagements", "35% sales uplift"],
       challenge:
-        "JS Laboratories needed to establish itself as a premium, trustworthy manufacturing partner in the highly competitive pharmaceutical and cosmetic manufacturing industry.",
+        "Jobha Cosmetics needed to bridge traditional South-Indian beauty practices with modern skincare expectations while building brand awareness in a competitive market.",
       solution:
-        "We crafted a comprehensive brand identity including logo applications, brand colors, messaging guidelines, and corporate tone that reflects trust, innovation, and scientific excellence. The result is a cohesive brand that commands respect in the industry.",
+        "We created an influencer-led campaign featuring regional ads across Instagram and Facebook, celebrating heritage while showcasing innovation. The storytelling approach resonated deeply with the target audience.",
     },
   ];
 
@@ -150,11 +151,11 @@ const Portfolio = () => {
               >
                 {/* Project Image */}
                 <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                  <div className="relative group overflow-hidden rounded-2xl shadow-medium hover-lift">
+                  <div className="relative group overflow- rounded-2xl shadow-medium">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-96 object-contain transition-transform duration-500 group-hover:scale-110 hover-lift"
                     />
                     {/* <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                     <div className="absolute top-4 right-4">
