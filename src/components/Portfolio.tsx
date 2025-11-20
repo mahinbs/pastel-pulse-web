@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 const Portfolio = () => {
@@ -87,7 +86,7 @@ const Portfolio = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -95,14 +94,14 @@ const Portfolio = () => {
             >
               Featured <span className="text-gradient">Work</span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Explore some of our recent projects and see how we've helped brands
-              achieve remarkable results.
+              Explore some of our recent projects and see how we've helped
+              brands achieve remarkable results.
             </motion.p>
           </div>
         </AnimatedSection>
@@ -110,69 +109,51 @@ const Portfolio = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {portfolioItems.map((item, index) => (
             <AnimatedSection key={item.id} delay={index * 0.2}>
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <Card className="overflow-hidden hover-lift border-0 shadow-soft">
-                  <div className="relative group">
-                    <motion.img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                      whileHover={{ scale: 1.05 }}
-                    />
+              <Card className="overflow-hidden hover-lift border-0 shadow-soft">
+                <div className="relative group">
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    whileHover={{ scale: 1.05 }}
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="secondary" className={item.badgeClass}>
+                      {item.category}
+                    </Badge>
                   </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="secondary" className={item.badgeClass}>
-                        {item.category}
-                      </Badge>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <div className="space-y-1 text-sm text-muted-foreground">
-                      {item.achievements.map((achievement, achievementIndex) => (
-                        <motion.div 
-                          key={achievementIndex}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ 
-                            delay: 0.5 + achievementIndex * 0.1,
-                            duration: 0.3
-                          }}
-                        >
-                          • {achievement}
-                        </motion.div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </Tilt>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <div className="space-y-1 text-sm text-muted-foreground">
+                    {item.achievements.map((achievement, achievementIndex) => (
+                      <motion.div
+                        key={achievementIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: 0.5 + achievementIndex * 0.1,
+                          duration: 0.3,
+                        }}
+                      >
+                        • {achievement}
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </AnimatedSection>
           ))}
         </div>
 
         <AnimatedSection delay={0.8}>
           <div className="text-center">
-            <Tilt
-              tiltMaxAngleX={8}
-              tiltMaxAngleY={8}
-              perspective={1000}
-              scale={1.05}
-              transitionSpeed={1000}
-              gyroscope={true}
-            >
-              <Link to="/portfolio">
-                <Button size="lg" variant="outline" className="hover-lift">
-                  View All Projects
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </Tilt>
+            <Link to="/portfolio">
+              <Button size="lg" variant="outline" className="hover-lift">
+                View All Projects
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </AnimatedSection>
       </div>

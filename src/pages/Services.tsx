@@ -126,6 +126,12 @@ const Services = () => {
     },
   ];
 
+  const tiltDefaults = {
+    tiltEnable: false,
+    glareEnable: false,
+    gyroscope: false,
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Dynamic Effect */}
@@ -145,7 +151,7 @@ const Services = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection>
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-medium mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -155,7 +161,7 @@ const Services = () => {
               <span>Our Services</span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -225,94 +231,86 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {services.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={800}
-                  gyroscope={true}
-                >
-                  <Card
-                    className="hover-lift border-0 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl"
+                <Card className="hover-lift border-0 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-2xl">
+                  <CardHeader
+                    className={`bg-gradient-to-br ${service.gradient} text-white pb-6 relative overflow-hidden sm:aspect-[3/2]`}
+                    style={{
+                      backgroundImage: `linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url(${service.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundBlendMode: "overlay",
+                    }}
                   >
-                <CardHeader
-                  className={`bg-gradient-to-br ${service.gradient} text-white pb-6 relative overflow-hidden sm:aspect-[3/2]`}
-                  style={{
-                    backgroundImage: `linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url(${service.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundBlendMode: "overlay",
-                  }}
-                >
-                  {/* Background decoration */}
-                  <div className="absolute inset-0 h-full w-full bg-orange-500/50 brightness-75"></div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    {/* Background decoration */}
+                    <div className="absolute inset-0 h-full w-full bg-orange-500/50 brightness-75"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+                    <div
+                      className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse"
+                      style={{ animationDelay: "1s" }}
+                    ></div>
 
-                  <div className="relative z-10">
-                    <div 
-                      className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 p-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 animate-float"
-                      style={{ animationDelay: `${index * 0.2}s` }}
-                    >
-                      <img
-                        src={service.iconUrl}
-                        alt={service.title}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                      />
-                  </div>
-                  <CardTitle className="text-2xl font-bold mb-2">
-                    {service.title}
-                  </CardTitle>
-                    <p className="text-white/95 font-medium text-lg mb-3">
-                      {service.subtitle}
-                    </p>
-                    <CardDescription className="text-white/95 text-base leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-4 text-foreground text-lg">
-                      What we offer:
-                    </h4>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-start gap-3"
-                        >
-                          <CheckCircle className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    <div className="relative z-10">
+                      <div
+                        className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 p-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 animate-float"
+                        style={{ animationDelay: `${index * 0.2}s` }}
+                      >
+                        <img
+                          src={service.iconUrl}
+                          alt={service.title}
+                          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      <CardTitle className="text-2xl font-bold mb-2">
+                        {service.title}
+                      </CardTitle>
+                      <p className="text-white/95 font-medium text-lg mb-3">
+                        {service.subtitle}
+                      </p>
+                      <CardDescription className="text-white/95 text-base leading-relaxed">
+                        {service.description}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="mb-6">
+                      <h4 className="font-semibold mb-4 text-foreground text-lg">
+                        What we offer:
+                      </h4>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, featureIndex) => (
+                          <li
+                            key={featureIndex}
+                            className="flex items-start gap-3"
+                          >
+                            <CheckCircle className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-muted-foreground text-sm">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-4 mb-6">
-                    <h4 className="font-semibold mb-2 text-foreground">
-                      Why it matters:
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {service.whyItMatters}
-                    </p>
+                    <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-4 mb-6">
+                      <h4 className="font-semibold mb-2 text-foreground">
+                        Why it matters:
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {service.whyItMatters}
+                      </p>
                     </div>
 
                     <Button
                       onClick={() =>
-                        window.open("https://wa.me/917358250143", "_blank")
+                        window.open("https://wa.me/916380974957", "_blank")
                       }
                       className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white hover-lift"
                     >
                       Get Started
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                </CardContent>
-              </Card>
-                </Tilt>
+                  </CardContent>
+                </Card>
               </AnimatedSection>
             ))}
           </div>
@@ -324,7 +322,7 @@ const Services = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <motion.h2 
+              <motion.h2
                 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -332,7 +330,7 @@ const Services = () => {
               >
                 Our <span className="text-gradient">Game Plan</span>
               </motion.h2>
-              <motion.p 
+              <motion.p
                 className="text-lg text-muted-foreground max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -346,25 +344,18 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <Tilt
-                  tiltMaxAngleX={5}
-                  tiltMaxAngleY={5}
-                  perspective={1000}
-                  scale={1.05}
-                  transitionSpeed={1000}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <div className="text-center group">
-                    <motion.div 
+                    <motion.div
                       className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
-                      animate={{ 
+                      animate={{
                         y: [0, -5, 0],
-                        rotate: [0, 2, 0]
+                        rotate: [0, 2, 0],
                       }}
-                      transition={{ 
+                      transition={{
                         duration: 3 + index * 0.5,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                       }}
                     >
                       {step.step}
@@ -389,7 +380,7 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" delay={0.2}>
               <div>
-                <motion.h2 
+                <motion.h2
                   className="text-3xl md:text-4xl font-bold mb-6"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -402,41 +393,45 @@ const Services = () => {
                     {
                       icon: <Award className="h-6 w-6" />,
                       title: "Fresh Minds, Bold Ideas",
-                      description: "We're a new-age team that thinks fast, moves faster, and loves breaking the boring."
+                      description:
+                        "We're a new-age team that thinks fast, moves faster, and loves breaking the boring.",
                     },
                     {
                       icon: <TrendingUp className="h-6 w-6" />,
                       title: "Startup Energy, Big Impact",
-                      description: "As a Chennai-based startup, we hustle like you — every reel, ad, and post is built to perform."
+                      description:
+                        "As a Chennai-based startup, we hustle like you — every reel, ad, and post is built to perform.",
                     },
                     {
                       icon: <CheckCircle className="h-6 w-6" />,
                       title: "Results You Can Count (and Flaunt)",
-                      description: "From clicks to conversions, we keep the numbers real and the growth measurable."
+                      description:
+                        "From clicks to conversions, we keep the numbers real and the growth measurable.",
                     },
                     {
                       icon: <Users className="h-6 w-6" />,
                       title: "People Love Working With Us",
-                      description: "Clients stick around because we listen, we deliver, and we make the process fun."
-                    }
+                      description:
+                        "Clients stick around because we listen, we deliver, and we make the process fun.",
+                    },
                   ].map((item, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       className="flex items-start gap-4"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                     >
-                      <motion.div 
+                      <motion.div
                         className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center text-white flex-shrink-0"
-                        animate={{ 
+                        animate={{
                           rotate: [0, 5, 0],
-                          scale: [1, 1.05, 1]
+                          scale: [1, 1.05, 1],
                         }}
-                        transition={{ 
+                        transition={{
                           duration: 2 + index * 0.5,
                           repeat: Infinity,
-                          ease: "easeInOut"
+                          ease: "easeInOut",
                         }}
                       >
                         {item.icon}
@@ -455,41 +450,38 @@ const Services = () => {
               </div>
             </AnimatedSection>
             <AnimatedSection direction="right" delay={0.4}>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 text-center">
-                  <motion.div 
-                    className="text-4xl font-bold text-primary mb-2"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ 
-                      delay: 0.8,
-                      duration: 0.5,
-                      type: "spring",
-                      stiffness: 200
-                    }}
-                  >
-                    98%
-                  </motion.div>
-                  <div className="text-lg font-semibold mb-4">
-                    Client Satisfaction Rate
-                  </div>
-                  <p className="text-muted-foreground mb-6">
-                    Our commitment to excellence shows in our client retention and
-                    satisfaction scores.
-                  </p>
-                  <Button size="lg" className="bg-gradient-primary hover-lift">
-                    Start Your Project
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 text-center">
+                <motion.div
+                  className="text-4xl font-bold text-primary mb-2"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    delay: 0.8,
+                    duration: 0.5,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  98%
+                </motion.div>
+                <div className="text-lg font-semibold mb-4">
+                  Client Satisfaction Rate
                 </div>
-              </Tilt>
+                <p className="text-muted-foreground mb-6">
+                  Our commitment to excellence shows in our client retention and
+                  satisfaction scores.
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-gradient-primary hover-lift"
+                  onClick={() =>
+                    window.open("https://wa.me/916380974957", "_blank")
+                  }
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </AnimatedSection>
           </div>
         </div>
@@ -499,40 +491,31 @@ const Services = () => {
       <section className="py-20 bg-gradient-hero text-white">
         <AnimatedSection>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Ready to PIQUE some interest? Let's turn your brand into everyone's
-              FAME.
+              Ready to PIQUE some interest? Let's turn your brand into
+              everyone's FAME.
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 hover-lift"
+                onClick={() =>
+                  window.open("https://wa.me/916380974957", "_blank")
+                }
               >
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-white/90 hover-lift"
-                  onClick={() =>
-                    window.open("https://wa.me/917358250143", "_blank")
-                  }
-                >
-                  Get A Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Tilt>
+                Get A Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </motion.div>
           </div>
         </AnimatedSection>

@@ -41,9 +41,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-2">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="">
+            <a href="/" className="">
               <img src="/logo.png" alt="logo" className="w-20 h-auto" />
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -80,7 +80,7 @@ const Navigation = () => {
               <Users className="h-4 w-4" />
               Team Login
             </Button> */}
-            <Link to={`tel:916380974957`}>
+            <Link to={`tel:+916380974957`}>
               <Button
                 variant="default"
                 size="sm"
@@ -150,7 +150,7 @@ const Navigation = () => {
                 <Users className="h-4 w-4" />
                 Team Login
               </Button> */}
-              <Link to={`tel:917358250143`} className="">
+              <Link to={`tel:+916380974957`} className="">
                 <Button
                   variant="default"
                   size="sm"

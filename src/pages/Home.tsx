@@ -108,6 +108,12 @@ const Home = () => {
     },
   ];
 
+  const tiltDefaults = {
+    tiltEnable: false,
+    glareEnable: false,
+    gyroscope: false,
+  };
+
   const testimonials = [
     {
       name: "Sujatha",
@@ -336,7 +342,7 @@ const Home = () => {
                     size="lg"
                     className="bg-primary text-white hover:bg-primary/90 hover-lift"
                     onClick={() =>
-                      window.open("https://wa.me/917358250143", "_blank")
+                      window.open("https://wa.me/916380974957", "_blank")
                     }
                   >
                     Work with Us
@@ -349,14 +355,7 @@ const Home = () => {
             {/* Right Side - Animated GIF with Tilt */}
             <AnimatedSection direction="right" delay={0.4}>
               <div className="flex justify-center lg:justify-end">
-                <Tilt
-                  tiltMaxAngleX={15}
-                  tiltMaxAngleY={15}
-                  perspective={1000}
-                  scale={1.05}
-                  transitionSpeed={1000}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <div className="relative max-w-md w-full">
                     <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl hover-lift">
                       <img
@@ -410,7 +409,7 @@ const Home = () => {
                 Who We Work With
               </h2>
               <p className="text-base md:text-lg text-muted-foreground">
-                Boutique founders, skincare disruptors, restaurateurs,
+                Boutique founders, skincare disruptors, restaurants and cafes,
                 real-estate visionaries, wellness pioneers, and retail leaders
                 trust PIQUEFAME to translate their stories into scroll-stopping
                 campaigns.
@@ -541,15 +540,7 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <Tilt
-                  tiltMaxAngleX={5}
-                  tiltMaxAngleY={5}
-                  perspective={1000}
-                  scale={1.05}
-                  transitionSpeed={1000}
-                  gyroscope={true}
-                  className="h-full"
-                >
+                <Tilt {...tiltDefaults} className="h-full">
                   <motion.div
                     className="group relative text-center p-6 md:p-8 rounded-2xl bg-white border-2 border-orange-200/50 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 overflow-hidden h-full"
                     whileHover={{ scale: 1.05, y: -4 }}
@@ -625,17 +616,9 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <Tilt
-                  tiltMaxAngleX={8}
-                  tiltMaxAngleY={8}
-                  perspective={1000}
-                  scale={1.03}
-                  transitionSpeed={1000}
-                  gyroscope={true}
-                  className="h-full"
-                >
+                <Tilt {...tiltDefaults} className="h-full">
                   <Card
-                    className={`group relative overflow-hidden border border-orange-200/50 bg-white backdrop-blur-xl shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 hover:-translate-y-3 hover:border-orange-400 h-full`}
+                    className={`group relative overflow-hidden border border-orange-200/50 bg-white backdrop-blur-xl shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 hover:border-orange-400 hover-lift h-full`}
                   >
                     {/* Solid Gradient Background */}
                     <div
@@ -712,7 +695,7 @@ const Home = () => {
               size="lg"
               className="bg-gradient-to-r from-orange-500 to-amber-600 text-white hover:from-orange-600 hover:to-amber-700 hover-lift shadow-2xl shadow-orange-500/30 text-lg px-8 py-6 font-bold border-2 border-white/20 backdrop-blur-sm"
               onClick={() =>
-                window.open("https://wa.me/917358250143", "_blank")
+                window.open("https://wa.me/916380974957", "_blank")
               }
             >
               "Let's PIQUE Your Fame"
@@ -1069,14 +1052,7 @@ const Home = () => {
                 >
                   {testimonials.map((testimonial, index) => (
                     <div key={index} className="w-full flex-shrink-0 px-2">
-                      <Tilt
-                        tiltMaxAngleX={5}
-                        tiltMaxAngleY={5}
-                        perspective={1000}
-                        scale={1.02}
-                        transitionSpeed={1000}
-                        gyroscope={true}
-                      >
+                      <Tilt {...tiltDefaults}>
                         <Card className="p-8 md:p-16 shadow-2xl border-0 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 relative min-h-[450px] rounded-3xl overflow-hidden backdrop-blur-sm">
                           {/* Decorative Elements */}
                           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
@@ -1184,15 +1160,8 @@ const Home = () => {
           {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <AnimatedSection delay={0.2}>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+              <Tilt {...tiltDefaults}>
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover-lift flex flex-col h-full group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/10 to-red-400/10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-300/5 to-yellow-300/5 rounded-full translate-y-12 -translate-x-12"></div>
                   <div className="relative z-10 p-8 flex flex-col h-full">
@@ -1258,15 +1227,8 @@ const Home = () => {
 
             
             <AnimatedSection delay={0.4}>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+              <Tilt {...tiltDefaults}>
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover-lift flex flex-col h-full group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-300/5 to-indigo-300/5 rounded-full translate-y-12 -translate-x-12"></div>
                   <div className="relative z-10 p-8 flex flex-col h-full">
@@ -1347,15 +1309,8 @@ const Home = () => {
           {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             
             <AnimatedSection delay={0.6}>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+              <Tilt {...tiltDefaults}>
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover-lift flex flex-col h-full group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-300/5 to-teal-300/5 rounded-full translate-y-12 -translate-x-12"></div>
                   <div className="relative z-10 p-8 flex flex-col h-full">
@@ -1444,15 +1399,8 @@ const Home = () => {
 
            
             <AnimatedSection delay={0.8}>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.02}
-                transitionSpeed={800}
-                gyroscope={true}
-              >
-                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group">
+              <Tilt {...tiltDefaults}>
+                <Card className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 hover-lift flex flex-col h-full group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-300/5 to-pink-300/5 rounded-full translate-y-12 -translate-x-12"></div>
                   <div className="relative z-10 p-8 flex flex-col h-full">
@@ -1572,19 +1520,12 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
-              >
+              <Tilt {...tiltDefaults}>
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 hover-lift"
                   onClick={() =>
-                    window.open("https://wa.me/917358250143", "_blank")
+                    window.open("https://wa.me/916380974957", "_blank")
                   }
                 >
                   Let's Begin
@@ -1619,7 +1560,7 @@ const Home = () => {
           {/* Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Strategic Marketing */}
-            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover-lift group">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
                 <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-md">
@@ -1638,7 +1579,7 @@ const Home = () => {
             </div>
 
             {/* Creative Design */}
-            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover-lift group">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">99%</div>
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-md">
@@ -1657,7 +1598,7 @@ const Home = () => {
             </div>
 
             {/* Social Media Management */}
-            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+            <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 hover-lift group">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">98%</div>
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-md">
@@ -1753,7 +1694,7 @@ const Home = () => {
                 <div className="mt-auto">
                   <Button
                     onClick={() =>
-                      window.open("https://wa.me/917358250143", "_blank")
+                      window.open("https://wa.me/916380974957", "_blank")
                     }
                     className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold py-6 px-6 rounded-xl text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 transform"
                   >

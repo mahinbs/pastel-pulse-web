@@ -126,8 +126,8 @@ const Portfolio = () => {
                 variant={selectedCategory === category ? "default" : "outline"}
                 className={
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
-                    : "hover-lift"
+                    ? "bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 transition-all duration-500 hover:scale-105"
+                    : "hover-lift transition-transform duration-500 hover:scale-105"
                 }
                 onClick={() => setSelectedCategory(category)}
               >
@@ -151,7 +151,7 @@ const Portfolio = () => {
               >
                 {/* Project Image */}
                 <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                  <div className="relative group overflow- rounded-2xl shadow-medium">
+                  <div className="relative group rounded-2xl shadow-medium">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -230,7 +230,7 @@ const Portfolio = () => {
                       <Badge
                         key={tagIndex}
                         variant="outline"
-                        className="flex items-center gap-1"
+                        className="flex items-center gap-1 transition-transform duration-500 hover:scale-105"
                       >
                         <Tag className="h-3 w-3" />
                         {tag}
@@ -258,7 +258,7 @@ const Portfolio = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center border-0 shadow-soft hover-lift">
+            <Card className="text-center border-0 shadow-soft hover-lift transition-transform duration-500 hover:scale-105">
               <CardContent className="pt-6">
                 <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
                   50+
@@ -268,7 +268,7 @@ const Portfolio = () => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="text-center border-0 shadow-soft hover-lift">
+            <Card className="text-center border-0 shadow-soft hover-lift transition-transform duration-500 hover:scale-105">
               <CardContent className="pt-6">
                 <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
                   2.5x
@@ -278,7 +278,7 @@ const Portfolio = () => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="text-center border-0 shadow-soft hover-lift">
+            <Card className="text-center border-0 shadow-soft hover-lift transition-transform duration-500 hover:scale-105">
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
                   Happy Clients
@@ -288,7 +288,7 @@ const Portfolio = () => {
                 </div>
               </CardContent>
             </Card>
-            <Card className="text-center border-0 shadow-soft hover-lift">
+            <Card className="text-center border-0 shadow-soft hover-lift transition-transform duration-500 hover:scale-105">
               <CardContent className="pt-6">
                 <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
                   Startup Energy
@@ -312,9 +312,9 @@ const Portfolio = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover-lift"
+              className="bg-white text-primary hover:bg-white/90 hover-lift transition-transform duration-500 hover:scale-105"
               onClick={() =>
-                window.open("https://wa.me/917358250143", "_blank")
+                window.open("https://wa.me/916380974957", "_blank")
               }
             >
               Get A Consultation

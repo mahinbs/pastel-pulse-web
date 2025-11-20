@@ -111,6 +111,12 @@ const Pricing = () => {
     }
   ];
 
+  const tiltDefaults = {
+    tiltEnable: false,
+    glareEnable: false,
+    gyroscope: false,
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -144,14 +150,7 @@ const Pricing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={800}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <Card className={`relative hover-lift border-0 shadow-medium overflow-hidden ${plan.popular ? 'ring-2 ring-primary shadow-strong' : ''}`}>
                     {plan.badge && (
                       <motion.div 
@@ -212,14 +211,7 @@ const Pricing = () => {
                         ))}
                       </motion.ul>
 
-                      <Tilt
-                        tiltMaxAngleX={8}
-                        tiltMaxAngleY={8}
-                        perspective={1000}
-                        scale={1.05}
-                        transitionSpeed={1000}
-                        gyroscope={true}
-                      >
+                      <Tilt {...tiltDefaults}>
                         <Button 
                           size="lg" 
                           className={`w-full hover-lift ${plan.popular ? 'bg-gradient-primary' : ''}`}
@@ -265,14 +257,7 @@ const Pricing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((category, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <Tilt
-                  tiltMaxAngleX={8}
-                  tiltMaxAngleY={8}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={800}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <Card className="border-0 shadow-soft hover-lift">
                     <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5">
                       <motion.div
@@ -344,14 +329,7 @@ const Pricing = () => {
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <Tilt
-                  tiltMaxAngleX={5}
-                  tiltMaxAngleY={5}
-                  perspective={1000}
-                  scale={1.01}
-                  transitionSpeed={1000}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <Card className="border-0 shadow-soft hover-lift">
                     <CardHeader>
                       <motion.div
@@ -420,14 +398,7 @@ const Pricing = () => {
               }
             ].map((item, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <Tilt
-                  tiltMaxAngleX={8}
-                  tiltMaxAngleY={8}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={800}
-                  gyroscope={true}
-                >
+                <Tilt {...tiltDefaults}>
                   <div className="text-center">
                     <motion.div 
                       className={`w-16 h-16 ${item.gradient} rounded-full flex items-center justify-center text-white mx-auto mb-4`}
@@ -487,28 +458,27 @@ const Pricing = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
-              >
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover-lift">
+              <Tilt {...tiltDefaults}>
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/90 hover-lift"
+                  onClick={() =>
+                    window.open("https://wa.me/916380974957", "_blank")
+                  }
+                >
                   <Phone className="mr-2 h-5 w-5" />
                   Schedule a Call
                 </Button>
               </Tilt>
-              <Tilt
-                tiltMaxAngleX={8}
-                tiltMaxAngleY={8}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
-              >
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover-lift">
+              <Tilt {...tiltDefaults}>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-primary hover-lift"
+                  onClick={() =>
+                    window.open("https://wa.me/916380974957", "_blank")
+                  }
+                >
                   <Mail className="mr-2 h-5 w-5" />
                   Get a Quote
                 </Button>

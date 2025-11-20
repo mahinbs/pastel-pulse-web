@@ -148,7 +148,12 @@
 
   /* Interactive animations */
   .hover-lift {
-    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg;
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.12);
   }
   
   .hover-scale {

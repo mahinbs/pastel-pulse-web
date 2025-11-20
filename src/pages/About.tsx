@@ -31,13 +31,13 @@ const About = () => {
     },
     {
       name: "Rekha S",
-      role: "Head of Brand Strategy and Growth from Digital Marketing Lead",
+      role: "Director of Strategy & Business Relations",
       description:
         "A growth-driven strategist who knows how to make every click count.",
     },
     {
       name: "Aishwarya A",
-      role: "Digital Marketing Head from Brand Strategist",
+      role: "Head of Digital Marketing",
       description:
         "A sharp storyteller who helps brands find their true voice and place in the market.",
     },
@@ -82,6 +82,12 @@ const About = () => {
     { number: "500+", label: "Projects Completed" },
     { number: "50+", label: "Awards Won" },
   ];
+
+  const tiltDefaults = {
+    tiltEnable: false,
+    glareEnable: false,
+    gyroscope: false,
+  };
 
   return (
     <div className="min-h-screen">
@@ -226,15 +232,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  perspective={1000}
-                  scale={1.02}
-                  transitionSpeed={800}
-                  gyroscope={true}
-                  className="h-full"
-                >
+                <Tilt {...tiltDefaults} className="h-full">
                   <Card className="hover-lift border-0 shadow-soft overflow-hidden h-full">
                     <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 text-center">
                       <motion.div 
@@ -343,29 +341,19 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
-              >
-                <Link to="https://wa.me/917358250143">
-                  <Button size="lg" className="bg-gradient-primary hover-lift">
-                    Get A Consultation
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+              <Tilt {...tiltDefaults}>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-primary hover-lift"
+                  onClick={() =>
+                    window.open("https://wa.me/916380974957", "_blank")
+                  }
+                >
+                  Get A Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </Tilt>
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                scale={1.05}
-                transitionSpeed={1000}
-                gyroscope={true}
-              >
+              <Tilt {...tiltDefaults}>
                 <Link to="/portfolio">
                   <Button size="lg" variant="outline" className="hover-lift">
                     View Our Work
