@@ -44,9 +44,9 @@ const Portfolio = () => {
         "Increased buyer inquiries",
       ],
       challenge:
-        "V4 Exports needed to reach international buyers and establish credibility in global trade networks while generating high-quality leads.",
+        "V4 Homes needed to reach international buyers and establish credibility in global trade networks while generating high-quality leads.",
       solution:
-        "We designed targeted ads and strategic email outreach campaigns with clear CTAs, positioning V4 Exports as a trusted export partner. The multi-channel approach maximized reach and conversions.",
+        "We designed targeted ads and strategic email outreach campaigns with clear CTAs, positioning V4 Homes as a trusted Home Partner. The multi-channel approach maximized reach and conversions.",
     },
     {
       id: 3,
